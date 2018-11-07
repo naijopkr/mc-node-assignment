@@ -1,0 +1,11 @@
+{
+  "name": "node_assignment",
+  "version": "1.0.0",
+  "description": "Modus Create Node.js API Development Assignment",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ariel Barcellos",
+  "license": "ISC"
+}
