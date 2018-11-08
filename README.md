@@ -4,7 +4,10 @@ Node.js version: `10.13.0`
 
 ## Setup
 1. Clone the repo:
-`$ git clone https://github.com/naijopkr/mc-node-assignment.git`
+```
+$ git clone https://github.com/naijopkr/mc-node-assignment.git`
+$ cd mc-node-assignment
+```
 
 2. Install dependencies:
 `$ npm install`
@@ -25,6 +28,6 @@ The tests were implemented using [Postman](https://www.getpostman.com).
 
 For testing, open the Postman application and import the file `/postman/postman_collection.json`
 
-The collection use a variable to define the port number. The initial value is set to 5000. If you are using other port, right click the collection folder on Postman and click in `Edit`. Then, in the `Variables` tab change the `INITIAL VALUE` for the variable `port` to the port in use.
+The collection use a variable to define the port number. The default value is set to 5000. If you are using other port, right click the collection folder on Postman and click in `Edit`. Then, in the `Variables` tab, change the `INITIAL VALUE` and `CURRENT VALUE` for the variable `port` to the port in use.
 
 Open the Runner in the Postman application and run the requests for the collection.
