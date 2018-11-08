@@ -88,11 +88,7 @@
 					"script": {
 						"id": "c094f6fd-dfa0-4d54-ad37-e3e1d666d0ef",
 						"exec": [
-							"pm.test(\"Bad data\", () => {",
-							"    const jsonExpected = { Count: 0, Results: [] }",
-							"    const jsonData = pm.response.json()",
-							"    pm.expect(jsonData).to.eql(jsonExpected)",
-							"})"
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -187,11 +183,7 @@
 					"script": {
 						"id": "2c834650-1441-4471-9c39-4b1a7135cd15",
 						"exec": [
-							"pm.test(\"Bad data\", () => {",
-							"    const jsonExpected = { Count: 0, Results: [] }",
-							"    const jsonData = pm.response.json()",
-							"    pm.expect(jsonData).to.eql(jsonExpected)",
-							"})"
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -335,20 +327,35 @@
 				"id": "e03d7cb7-fbca-4166-83ae-07b712574af3",
 				"type": "text/javascript",
 				"exec": [
-					""
+					"pm.test('Fetch cars', () => {",
+					"    const jsonData = pm.response.json()",
+					"    const withRating = pm.request.url.query.get('withRating')",
+					"    ",
+					"    if (jsonData.Count > 0) {",
+					"        for (let result of jsonData.Results) {",
+					"            pm.expect(result).to.have.property('VehicleId')",
+					"            pm.expect(result).to.have.property('VehicleDescription')",
+					"            if (withRating === 'true') {",
+					"                pm.expect(result).to.have.property('CrashRating')",
+					"            }",
+					"        }",
+					"    } else {",
+					"        pm.expect(jsonData.Results).to.eql([])",
+					"    }",
+					"})"
 				]
 			}
 		}
 	],
 	"variable": [
 		{
-			"id": "3df55e2f-1848-410a-848c-4e8a303e575b",
+			"id": "1674270c-88f4-49d8-b791-439483acd2f0",
 			"key": "port",
 			"value": "5000",
 			"type": "string"
 		},
 		{
-			"id": "5c4c39fe-3669-41ba-9000-68603b2b623a",
+			"id": "96c49cb9-9249-478e-af9d-9bfb24198aea",
 			"key": "bad_data",
 			"value": "{ Count: 0, Results: [] }",
 			"type": "string"
