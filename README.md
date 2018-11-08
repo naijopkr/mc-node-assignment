@@ -1,6 +1,6 @@
-#Node.js assignment
+# Node.js assignment
 
-##Setup
+## Setup
 1. Clone the repo:
 `$ git clone https://github.com/naijopkr/mc-node-assignment.git`
 
@@ -18,11 +18,11 @@ NHTSA_API_URI=https://one.nhtsa.gov/webapi/api/SafetyRatings/
 4. Start the server:
 `$ npm start`
 
-##Tests
+## Tests
 The tests were implemented using [Postman](https://www.getpostman.com).
 
 For testing, open the Postman application and import the file `/postman/postman_collection.json`
 
 The collection use a variable to define the port number. The initial value is set to 5000. If you are using other port, right click the collection folder on Postman and click in `Edit`. Then, in the `Variables` tab change the `INITIAL VALUE` for the variable `port` to the port in use.
 
-Open the Runner in the Postman application and run the tests for the collection.
+Open the Runner in the Postman application and run the requests for the collection.
