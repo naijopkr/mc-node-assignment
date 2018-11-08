@@ -1,5 +1,7 @@
 # Node.js assignment
 
+Node.js version: `10.13.0`
+
 ## Setup
 1. Clone the repo:
 `$ git clone https://github.com/naijopkr/mc-node-assignment.git`
