@@ -6,7 +6,7 @@ Node.js version: `10.13.0`
 1. Clone the repo:
 
 ```
-$ git clone https://github.com/naijopkr/mc-node-assignment.git`
+$ git clone https://github.com/naijopkr/mc-node-assignment.git
 $ cd mc-node-assignment
 ```
 
