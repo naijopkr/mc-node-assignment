@@ -1,0 +1,357 @@
+{
+	"info": {
+		"_postman_id": "cac8f394-f799-4687-90c0-aa5f5f726690",
+		"name": "ModusCreateAssignment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "FetchAudiA3",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:{{port}}/vehicles/2015/Audi/A3",
+					"host": [
+						"localhost"
+					],
+					"port": "{{port}}",
+					"path": [
+						"vehicles",
+						"2015",
+						"Audi",
+						"A3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FetchToyotaYaris",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:{{port}}/vehicles/2015/Toyota/Yaris",
+					"host": [
+						"localhost"
+					],
+					"port": "{{port}}",
+					"path": [
+						"vehicles",
+						"2015",
+						"Toyota",
+						"Yaris"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FetchFordCrownVictoria (No results)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:{{port}}/vehicles/2015/Ford/Crown%20Victoria",
+					"host": [
+						"localhost"
+					],
+					"port": "{{port}}",
+					"path": [
+						"vehicles",
+						"2015",
+						"Ford",
+						"Crown%20Victoria"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FetchFordFusion (Bad Data)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c094f6fd-dfa0-4d54-ad37-e3e1d666d0ef",
+						"exec": [
+							"pm.test(\"Bad data\", () => {",
+							"    const jsonExpected = { Count: 0, Results: [] }",
+							"    const jsonData = pm.response.json()",
+							"    pm.expect(jsonData).to.eql(jsonExpected)",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:{{port}}/vehicles/undefined/Ford/Fusion",
+					"host": [
+						"localhost"
+					],
+					"port": "{{port}}",
+					"path": [
+						"vehicles",
+						"undefined",
+						"Ford",
+						"Fusion"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FetchAudiA3",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"modelYear\": 2015,\n\t\"manufacturer\": \"Audi\",\n\t\"model\": \"A3\"\n}"
+				},
+				"url": {
+					"raw": "localhost:{{port}}/vehicles",
+					"host": [
+						"localhost"
+					],
+					"port": "{{port}}",
+					"path": [
+						"vehicles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FetchToyotaYaris",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"modelYear\": 2015,\n\t\"manufacturer\": \"Toyota\",\n\t\"model\": \"Yaris\"\n}"
+				},
+				"url": {
+					"raw": "localhost:{{port}}/vehicles",
+					"host": [
+						"localhost"
+					],
+					"port": "{{port}}",
+					"path": [
+						"vehicles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FetchHondaAccord (Bad Data)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2c834650-1441-4471-9c39-4b1a7135cd15",
+						"exec": [
+							"pm.test(\"Bad data\", () => {",
+							"    const jsonExpected = { Count: 0, Results: [] }",
+							"    const jsonData = pm.response.json()",
+							"    pm.expect(jsonData).to.eql(jsonExpected)",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"manufacturer\": \"Honda\",\n\t\"model\": \"Accord\"\n}"
+				},
+				"url": {
+					"raw": "localhost:{{port}}/vehicles",
+					"host": [
+						"localhost"
+					],
+					"port": "{{port}}",
+					"path": [
+						"vehicles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FetchAudiA3 (withRating=true)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:{{port}}/vehicles/2015/Audi/A3?withRating=true",
+					"host": [
+						"localhost"
+					],
+					"port": "{{port}}",
+					"path": [
+						"vehicles",
+						"2015",
+						"Audi",
+						"A3"
+					],
+					"query": [
+						{
+							"key": "withRating",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FetchAudiA3 (withRating=false)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:{{port}}/vehicles/2015/Audi/A3?withRating=false",
+					"host": [
+						"localhost"
+					],
+					"port": "{{port}}",
+					"path": [
+						"vehicles",
+						"2015",
+						"Audi",
+						"A3"
+					],
+					"query": [
+						{
+							"key": "withRating",
+							"value": "false"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FetchAudiA3 (withRating=bananas)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:{{port}}/vehicles/2015/Audi/A3?withRating=bananas",
+					"host": [
+						"localhost"
+					],
+					"port": "{{port}}",
+					"path": [
+						"vehicles",
+						"2015",
+						"Audi",
+						"A3"
+					],
+					"query": [
+						{
+							"key": "withRating",
+							"value": "bananas"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "ade07810-1335-4380-bf05-45e6b5b2a85d",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "e03d7cb7-fbca-4166-83ae-07b712574af3",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "3df55e2f-1848-410a-848c-4e8a303e575b",
+			"key": "port",
+			"value": "5000",
+			"type": "string"
+		},
+		{
+			"id": "5c4c39fe-3669-41ba-9000-68603b2b623a",
+			"key": "bad_data",
+			"value": "{ Count: 0, Results: [] }",
+			"type": "string"
+		}
+	]
+}
